@@ -1,1048 +1,1307 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Swisslin Raj V — Electronics & Communication Engineering, VLSI, FPGA, Embedded Systems, AI and Research.">
 
-    <meta name="description"
-          content="Swisslin Raj V — Electronics and Communication Engineering student focused on VLSI, FPGA, Embedded Systems, AI and research.">
+  <title>Swisslin Raj V | Engineering Beyond Boundaries</title>
 
-    <meta name="author"
-          content="Swisslin Raj V">
-
-    <title>Swisslin Raj V — Electronics × VLSI × AI</title>
-
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================================
-         PRELOADER
-    ========================================== -->
+  <!-- =========================================================
+       SPACE BACKGROUND
+  ========================================================== -->
 
-    <div class="preloader" id="preloader">
-        <div class="loader-content">
-            <div class="loader-name">SWISSLIN RAJ V</div>
-            <div class="loader-line">
-                <span></span>
-            </div>
-            <div class="loader-status">
-                INITIALIZING PORTFOLIO...
-            </div>
-        </div>
+  <canvas id="spaceCanvas" aria-hidden="true"></canvas>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+
+  <header class="nav">
+
+    <a class="brand" href="#home">
+      SWISSLIN<span>RAJ V</span>
+    </a>
+
+    <button class="menu-btn" aria-label="Open menu">
+      ☰
+    </button>
+
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#missions">MISSIONS</a>
+      <a href="#research">RESEARCH</a>
+      <a href="#lab">LAB</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="status">
+      <i></i>
+      SYSTEM ONLINE
     </div>
 
-
-    <!-- =========================================
-         BACKGROUND
-    ========================================== -->
-
-    <div class="background-grid"></div>
-
-    <div class="cursor-glow" id="cursorGlow"></div>
+  </header>
 
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
-
-    <header class="navbar">
-
-        <a href="#home" class="nav-logo">
-            SRV<span>.</span>
-        </a>
-
-        <nav class="nav-links">
-
-            <a href="#about">ABOUT</a>
-
-            <a href="#work">WORK</a>
-
-            <a href="#expertise">EXPERTISE</a>
-
-            <a href="#research">RESEARCH</a>
-
-            <a href="#contact">CONTACT</a>
-
-        </nav>
-
-        <a href="#contact" class="nav-connect">
-            LET'S CONNECT
-        </a>
-
-    </header>
+  <main>
 
 
-    <!-- =========================================
-         HERO
-    ========================================== -->
+    <!-- =======================================================
+         HERO / CINEMATIC SPACE INTRO
+    ======================================================== -->
 
-    <main>
+    <section id="home" class="hero">
 
-        <section class="hero" id="home">
+      <div class="hero-copy reveal">
 
-            <div class="hero-content">
+        <p class="eyebrow">
+          PERSONAL ENGINEERING PORTFOLIO // 2026
+        </p>
 
-                <div class="hero-kicker">
-                    ELECTRONICS × VLSI × AI
-                </div>
+        <h1>
+          SWISSLIN<br>
+          <span>RAJ V</span>
+        </h1>
 
-                <h1 class="hero-title">
+        <p class="hero-title">
+          ELECTRONICS &amp; COMMUNICATION ENGINEERING
+        </p>
 
-                    <span>SWISSLIN</span>
+        <p class="hero-sub">
+          VLSI · FPGA · EMBEDDED · AI · RESEARCH
+        </p>
 
-                    <span class="hero-title-outline">
-                        RAJ V
-                    </span>
+        <div class="hero-actions">
 
-                </h1>
+          <a class="btn primary" href="#missions">
+            ENTER MISSION ARCHIVE
+          </a>
 
-                <p class="hero-description">
+          <a class="btn" href="#about">
+            MEET THE ENGINEER
+          </a>
 
-                    Electronics & Communication Engineering student
-                    building systems across
+        </div>
 
-                    <strong>
-                        VLSI, FPGA, Embedded Systems and Artificial Intelligence.
-                    </strong>
-
-                </p>
-
-
-                <div class="hero-actions">
-
-                    <a href="#work" class="primary-button">
-                        <span>EXPLORE MY WORK</span>
-                        <span class="button-arrow">↗</span>
-                    </a>
-
-                    <a href="#about" class="secondary-button">
-                        DISCOVER MORE
-                    </a>
-
-                </div>
-
-            </div>
+      </div>
 
 
-            <!-- Hero side information -->
+      <!-- Earth / Space visual -->
 
-            <div class="hero-side-info">
+      <div class="earth-scene" aria-hidden="true">
 
-                <div class="side-line"></div>
+        <div class="nebula"></div>
 
-                <span>
-                    ECE / ENGINEERING
-                </span>
+        <div class="sun"></div>
 
-                <span>
-                    HARDWARE + SOFTWARE
-                </span>
+        <div class="earth">
 
-                <span>
-                    RESEARCH / BUILD / EXPLORE
-                </span>
+          <div class="earth-glow"></div>
 
-            </div>
+        </div>
+
+      </div>
 
 
-            <!-- Scroll indicator -->
+      <div class="scroll-hint">
+        SCROLL TO EXPLORE
+        <span>↓</span>
+      </div>
 
-            <div class="scroll-indicator">
+    </section>
 
-                <span>SCROLL TO EXPLORE</span>
 
-                <div class="scroll-line"></div>
+
+    <!-- =======================================================
+         IDENTITY
+    ======================================================== -->
+
+    <section id="identity" class="identity section">
+
+      <div class="section-label">
+        01 // IDENTITY
+      </div>
+
+
+      <div class="id-grid">
+
+
+        <!-- Portrait -->
+
+        <div class="portrait-stage reveal">
+
+          <div class="orbit orbit-a"></div>
+
+          <div class="orbit orbit-b"></div>
+
+
+          <div class="portrait-card">
+
+            <div class="scan"></div>
+
+            <img
+              src="profile.jpg"
+              alt="Portrait of Swisslin Raj V"
+            >
+
+            <div class="portrait-caption">
+
+              <span>
+                IDENTITY VERIFIED
+              </span>
+
+              <b>
+                SWISSLIN RAJ V
+              </b>
 
             </div>
 
-        </section>
+          </div>
+
+
+          <div class="data-tag tag-one">
+            ECE // ENGINEERING
+          </div>
+
+          <div class="data-tag tag-two">
+            VLSI / FPGA
+          </div>
+
+          <div class="data-tag tag-three">
+            AI / EMBEDDED
+          </div>
+
+        </div>
 
 
 
-        <!-- =====================================
-             ABOUT
-        ====================================== -->
+        <!-- Introduction -->
 
-        <section class="about section" id="about">
+        <div class="identity-copy reveal">
 
-            <div class="section-label">
-                01 — ABOUT
+          <p class="eyebrow">
+            HELLO, I'M SWISSLIN
+          </p>
+
+          <h2>
+            I BUILD<br>
+            <span>SYSTEMS THAT THINK.</span>
+          </h2>
+
+          <p>
+            I am an Electronics &amp; Communication Engineering student
+            exploring the intersection of hardware, intelligent systems
+            and emerging technology.
+          </p>
+
+          <p>
+            My work moves from RTL and processor design to embedded
+            systems, artificial intelligence, human-computer interaction
+            and experimental prototypes.
+          </p>
+
+
+          <div class="quote">
+            “BUILD · RESEARCH · INNOVATE”
+          </div>
+
+
+          <div class="mini-stats">
+
+            <div>
+              <strong>VLSI</strong>
+              <span>RTL / DIGITAL DESIGN</span>
             </div>
 
-
-            <div class="about-layout">
-
-                <div class="about-heading">
-
-                    <h2>
-                        BUILDING AT THE
-                        <span>INTERSECTION</span>
-                        OF HARDWARE & INTELLIGENCE.
-                    </h2>
-
-                </div>
-
-
-                <div class="about-text">
-
-                    <p>
-                        I am a B.Tech Electronics and Communication
-                        Engineering student with a strong interest in
-                        digital hardware, VLSI, processor architecture,
-                        embedded systems and artificial intelligence.
-                    </p>
-
-                    <p>
-                        My projects explore the connection between
-                        physical hardware and intelligent computation —
-                        from RTL processor design and FPGA simulation
-                        to embedded AI systems and intelligent interfaces.
-                    </p>
-
-                    <p>
-                        I enjoy taking an idea from concept to
-                        architecture, implementation, simulation and
-                        working prototype.
-                    </p>
-
-
-                    <a href="#expertise" class="text-link">
-                        VIEW MY EXPERTISE
-                        <span>↗</span>
-                    </a>
-
-                </div>
-
+            <div>
+              <strong>FPGA</strong>
+              <span>VERILOG / VIVADO</span>
             </div>
 
-
-            <!-- Stats -->
-
-            <div class="about-stats">
-
-                <div class="stat">
-
-                    <span class="stat-number">
-                        01
-                    </span>
-
-                    <span class="stat-label">
-                        PROCESSOR<br>
-                        ARCHITECTURE
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-number">
-                        02
-                    </span>
-
-                    <span class="stat-label">
-                        EMBEDDED<br>
-                        SYSTEMS
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-number">
-                        03
-                    </span>
-
-                    <span class="stat-label">
-                        AI /<br>
-                        TINYML
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-number">
-                        04
-                    </span>
-
-                    <span class="stat-label">
-                        RESEARCH &<br>
-                        INNOVATION
-                    </span>
-
-                </div>
-
+            <div>
+              <strong>AI</strong>
+              <span>EDGE / TINYML</span>
             </div>
 
-        </section>
-
-
-
-        <!-- =====================================
-             SELECTED WORK
-        ====================================== -->
-
-        <section class="work section" id="work">
-
-            <div class="section-header">
-
-                <div class="section-label">
-                    02 — SELECTED WORK
-                </div>
-
-                <p>
-                    PROJECTS / SYSTEMS / EXPERIMENTS
-                </p>
-
+            <div>
+              <strong>HCI</strong>
+              <span>INTERACTIVE SYSTEMS</span>
             </div>
 
+          </div>
 
-            <div class="projects-grid">
+        </div>
 
+      </div>
 
-                <!-- VERA-E -->
+    </section>
 
-                <article class="project-card project-large">
 
-                    <div class="project-number">
-                        01
-                    </div>
 
-                    <div class="project-content">
+    <!-- =======================================================
+         CURRENT ORBIT
+    ======================================================== -->
 
-                        <div class="project-category">
-                            VLSI / PROCESSOR DESIGN
-                        </div>
+    <section id="about" class="section orbit-section">
 
-                        <h3>
-                            VERA-E
-                        </h3>
+      <div class="section-label">
+        02 // CURRENT ORBIT
+      </div>
 
-                        <h4>
-                            32-BIT PROCESSOR ARCHITECTURE
-                        </h4>
 
-                        <p>
-                            A processor design project exploring
-                            RTL architecture, instruction memory,
-                            control logic, ALU operations and
-                            pipeline-oriented digital design.
-                        </p>
+      <div class="orbit-layout">
 
 
-                        <div class="project-tags">
+        <div class="orbit-text reveal">
 
-                            <span>VERILOG</span>
-                            <span>RTL</span>
-                            <span>VIVADO</span>
-                            <span>FPGA</span>
+          <p class="eyebrow">
+            CURRENT ORBIT
+          </p>
 
-                        </div>
+          <h2>
+            ONE ENGINEER.<br>
+            <span>MULTIPLE DOMAINS.</span>
+          </h2>
 
+          <p>
+            I like building at the boundary between electronics
+            and intelligence: hardware that senses, computes,
+            responds and communicates.
+          </p>
 
-                        <a href="https://github.com/SWISSLIN"
-                           target="_blank"
-                           rel="noopener"
-                           class="project-link">
+        </div>
 
-                            VIEW PROJECT
 
-                            <span>↗</span>
 
-                        </a>
+        <!-- Interactive orbital system -->
 
-                    </div>
+        <div class="orbit-system"
+             aria-label="Engineering domains">
 
+          <div class="core">
+            SRV
+            <br>
+            <small>CORE</small>
+          </div>
 
-                    <div class="project-visual processor-visual">
 
-                        <div class="chip-outline">
+          <div class="planet p1">
+            VLSI
+          </div>
 
-                            <div class="chip-core">
-                                VERA
-                            </div>
+          <div class="planet p2">
+            FPGA
+          </div>
 
-                            <div class="chip-pin pin-1"></div>
-                            <div class="chip-pin pin-2"></div>
-                            <div class="chip-pin pin-3"></div>
-                            <div class="chip-pin pin-4"></div>
+          <div class="planet p3">
+            AI
+          </div>
 
-                        </div>
+          <div class="planet p4">
+            EMBEDDED
+          </div>
 
-                    </div>
+          <div class="planet p5">
+            HCI
+          </div>
 
-                </article>
 
+          <div class="ring r1"></div>
 
+          <div class="ring r2"></div>
 
-                <!-- AXON AIR -->
+        </div>
 
-                <article class="project-card">
+      </div>
 
-                    <div class="project-number">
-                        02
-                    </div>
+    </section>
 
-                    <div class="project-category">
-                        AI / RESEARCH
-                    </div>
 
-                    <h3>
-                        AXON AIR
-                    </h3>
 
-                    <h4>
-                        INTELLIGENT INTERFACE SYSTEM
-                    </h4>
+    <!-- =======================================================
+         MISSION ARCHIVE
+    ======================================================== -->
 
-                    <p>
-                        A research-oriented concept exploring
-                        Aerial Interface Response through Advanced
-                        Executable Optimization Network.
-                    </p>
+    <section id="missions" class="section">
 
-                    <div class="project-tags">
+      <div class="section-label">
+        03 // MISSION ARCHIVE
+      </div>
 
-                        <span>AI</span>
-                        <span>RESEARCH</span>
-                        <span>INTERFACE</span>
 
-                    </div>
+      <div class="section-head reveal">
 
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-link">
+        <div>
 
-                        EXPLORE
+          <p class="eyebrow">
+            SELECTED BUILDS
+          </p>
 
-                        <span>↗</span>
+          <h2>
+            MISSION<br>
+            <span>ARCHIVE</span>
+          </h2>
 
-                    </a>
+        </div>
 
-                </article>
+        <p>
+          Real projects. Real hardware. Real experiments.
+        </p>
 
+      </div>
 
 
-                <!-- HPPAI-CG -->
 
-                <article class="project-card">
+      <div class="missions">
 
-                    <div class="project-number">
-                        03
-                    </div>
 
-                    <div class="project-category">
-                        EMBEDDED AI
-                    </div>
+        <!-- =================================================
+             MISSION 01 — VERA-E
+        ================================================== -->
 
-                    <h3>
-                        HPPAI-CG
-                    </h3>
+        <article
+          class="mission reveal"
+          data-project="vera"
+        >
 
-                    <h4>
-                        AI COMPANION GLASSES
-                    </h4>
+          <div class="mission-no">
+            MISSION 01
+          </div>
 
-                    <p>
-                        A wearable intelligent system concept
-                        combining cameras, sensors, audio,
-                        display and embedded AI processing.
-                    </p>
 
-                    <div class="project-tags">
+          <div class="mission-visual chip-visual">
 
-                        <span>ESP32</span>
-                        <span>RASPBERRY PI</span>
-                        <span>AI</span>
-
-                    </div>
-
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-link">
-
-                        EXPLORE
-
-                        <span>↗</span>
-
-                    </a>
-
-                </article>
-
-
-
-                <!-- TinyML -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        04
-                    </div>
-
-                    <div class="project-category">
-                        TINYML / SOC
-                    </div>
-
-                    <h3>
-                        TINYML
-                    </h3>
-
-                    <h4>
-                        WEARABLE HEALTHCARE SOC
-                    </h4>
-
-                    <p>
-                        A low-power intelligent hardware concept
-                        combining machine learning and embedded
-                        processing for wearable applications.
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>TINYML</span>
-                        <span>PYTHON</span>
-                        <span>SOC</span>
-
-                    </div>
-
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-link">
-
-                        EXPLORE
-
-                        <span>↗</span>
-
-                    </a>
-
-                </article>
-
-
-
-                <!-- Smart Village -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        05
-                    </div>
-
-                    <div class="project-category">
-                        EMBEDDED / IOT
-                    </div>
-
-                    <h3>
-                        SMART VILLAGE
-                    </h3>
-
-                    <h4>
-                        SENSOR & CONTROL SYSTEM
-                    </h4>
-
-                    <p>
-                        Embedded prototype integrating environmental
-                        sensing, water monitoring, agriculture sensing
-                        and solar tracking.
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>ESP32</span>
-                        <span>SENSORS</span>
-                        <span>IOT</span>
-
-                    </div>
-
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-link">
-
-                        EXPLORE
-
-                        <span>↗</span>
-
-                    </a>
-
-                </article>
-
-
-
-                <!-- Relay -->
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        06
-                    </div>
-
-                    <div class="project-category">
-                        EMBEDDED SYSTEMS
-                    </div>
-
-                    <h3>
-                        AUTOMATED RELAY
-                    </h3>
-
-                    <h4>
-                        TIME-BASED CONTROL SYSTEM
-                    </h4>
-
-                    <p>
-                        Arduino-based automated relay switching
-                        system designed for scheduled electrical
-                        appliance control.
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>ARDUINO</span>
-                        <span>EMBEDDED</span>
-                        <span>AUTOMATION</span>
-
-                    </div>
-
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="project-link">
-
-                        EXPLORE
-
-                        <span>↗</span>
-
-                    </a>
-
-                </article>
-
+            <div class="chip">
+              VERA-E
             </div>
 
-        </section>
+          </div>
 
 
+          <div class="mission-body">
 
-        <!-- =====================================
-             EXPERTISE
-        ====================================== -->
+            <span>
+              VLSI · RTL · FPGA
+            </span>
 
-        <section class="expertise section" id="expertise">
+            <h3>
+              VERA-E
+            </h3>
 
-            <div class="section-label">
-                03 — EXPERTISE
-            </div>
+            <p>
+              32-bit processor design exploring RTL architecture,
+              control, registers, ALU and pipelined execution.
+            </p>
 
+            <button class="text-btn">
+              ENTER MISSION ↗
+            </button>
 
-            <div class="expertise-heading">
+          </div>
 
-                <h2>
-                    WHAT I
-                    <span>WORK WITH.</span>
-                </h2>
 
-            </div>
+          <div class="mission-status">
+            ● DEVELOPMENT
+          </div>
 
+        </article>
 
-            <div class="expertise-list">
 
 
-                <div class="expertise-item">
+        <!-- =================================================
+             MISSION 02 — AXON AIR
+        ================================================== -->
 
-                    <span class="expertise-number">
-                        01
-                    </span>
+        <article
+          class="mission reveal"
+          data-project="axon"
+        >
 
-                    <div>
-                        <h3>
-                            VLSI & DIGITAL DESIGN
-                        </h3>
+          <div class="mission-no">
+            MISSION 02
+          </div>
 
-                        <p>
-                            RTL Design / Verilog / Digital Logic /
-                            Processor Architecture / FPGA
-                        </p>
-                    </div>
 
-                    <span class="expertise-arrow">
-                        ↗
-                    </span>
+          <div class="mission-visual axon-visual">
 
-                </div>
+            <div class="axon-node n1"></div>
 
+            <div class="axon-node n2"></div>
 
-                <div class="expertise-item">
+            <div class="axon-node n3"></div>
 
-                    <span class="expertise-number">
-                        02
-                    </span>
+            <div class="axon-lines"></div>
 
-                    <div>
-                        <h3>
-                            EMBEDDED SYSTEMS
-                        </h3>
+          </div>
 
-                        <p>
-                            ESP32 / Arduino / Raspberry Pi /
-                            Sensors / IoT / Hardware Prototyping
-                        </p>
-                    </div>
 
-                    <span class="expertise-arrow">
-                        ↗
-                    </span>
+          <div class="mission-body">
 
-                </div>
+            <span>
+              AI · HCI · EMBEDDED
+            </span>
 
+            <h3>
+              AXON AIR
+            </h3>
 
-                <div class="expertise-item">
+            <p>
+              A research-driven aerial interface concept exploring
+              intelligent human-computer interaction.
+            </p>
 
-                    <span class="expertise-number">
-                        03
-                    </span>
+            <button class="text-btn">
+              ENTER MISSION ↗
+            </button>
 
-                    <div>
-                        <h3>
-                            ARTIFICIAL INTELLIGENCE
-                        </h3>
+          </div>
 
-                        <p>
-                            Machine Learning / TinyML /
-                            AI Interfaces / Intelligent Systems
-                        </p>
-                    </div>
 
-                    <span class="expertise-arrow">
-                        ↗
-                    </span>
+          <div class="mission-status">
+            ● RESEARCH
+          </div>
 
-                </div>
+        </article>
 
 
-                <div class="expertise-item">
 
-                    <span class="expertise-number">
-                        04
-                    </span>
+        <!-- =================================================
+             MISSION 03 — HPPAI-CG
+        ================================================== -->
 
-                    <div>
-                        <h3>
-                            HARDWARE DEVELOPMENT
-                        </h3>
+        <article
+          class="mission reveal"
+          data-project="hppai"
+        >
 
-                        <p>
-                            PCB Design / Sensors / Microcontrollers /
-                            Prototyping / System Integration
-                        </p>
-                    </div>
+          <div class="mission-no">
+            MISSION 03
+          </div>
 
-                    <span class="expertise-arrow">
-                        ↗
-                    </span>
 
-                </div>
+          <div class="mission-visual glasses-visual">
 
+            HPPAI-CG
 
-                <div class="expertise-item">
+          </div>
 
-                    <span class="expertise-number">
-                        05
-                    </span>
 
-                    <div>
-                        <h3>
-                            SOFTWARE & TOOLS
-                        </h3>
+          <div class="mission-body">
 
-                        <p>
-                            Python / Git / GitHub / Vivado /
-                            Arduino IDE / PlatformIO
-                        </p>
-                    </div>
+            <span>
+              AI · COMPUTER VISION · EMBEDDED
+            </span>
 
-                    <span class="expertise-arrow">
-                        ↗
-                    </span>
+            <h3>
+              HPPAI-CG
+            </h3>
 
-                </div>
+            <p>
+              AI companion glasses concept combining camera sensing,
+              edge processing, audio, display and intelligent assistance.
+            </p>
 
-            </div>
+            <button class="text-btn">
+              ENTER MISSION ↗
+            </button>
 
-        </section>
+          </div>
 
 
+          <div class="mission-status">
+            ● PROTOTYPE
+          </div>
 
-        <!-- =====================================
-             RESEARCH
-        ====================================== -->
+        </article>
 
-        <section class="research section" id="research">
 
-            <div class="section-label">
-                04 — RESEARCH
-            </div>
 
+        <!-- =================================================
+             MISSION 04 — TINYML
+        ================================================== -->
 
-            <div class="research-layout">
+        <article
+          class="mission reveal"
+          data-project="tinyml"
+        >
 
-                <div class="research-title">
+          <div class="mission-no">
+            MISSION 04
+          </div>
 
-                    <span>
-                        CURRENT
-                    </span>
 
-                    <span>
-                        RESEARCH
-                    </span>
+          <div class="mission-visual tiny-visual">
 
-                    <span class="outline">
-                        DIRECTION
-                    </span>
+            <span>
+              SENSOR
+            </span>
 
-                </div>
+            <b>→</b>
 
+            <span>
+              ML
+            </span>
 
-                <div class="research-content">
+            <b>→</b>
 
-                    <div class="research-item">
+            <span>
+              INFERENCE
+            </span>
 
-                        <span class="research-id">
-                            R / 01
-                        </span>
+          </div>
 
-                        <h3>
-                            AXON AIR
-                        </h3>
 
-                        <p>
-                            A novel approach for Aerial Interface
-                            Response through Advanced Executable
-                            Optimization Network.
-                        </p>
+          <div class="mission-body">
 
-                        <div class="research-status">
-                            RESEARCH PROJECT
-                        </div>
+            <span>
+              TINYML · EDGE AI · HARDWARE
+            </span>
 
-                    </div>
+            <h3>
+              TINYML SOC
+            </h3>
 
+            <p>
+              Exploring machine-learning inference on
+              resource-constrained embedded hardware.
+            </p>
 
-                    <div class="research-item">
+            <button class="text-btn">
+              ENTER MISSION ↗
+            </button>
 
-                        <span class="research-id">
-                            R / 02
-                        </span>
+          </div>
 
-                        <h3>
-                            HARDWARE + AI
-                        </h3>
 
-                        <p>
-                            Exploring intelligent embedded systems,
-                            hardware acceleration and the integration
-                            of AI with resource-constrained devices.
-                        </p>
+          <div class="mission-status">
+            ● DEVELOPMENT
+          </div>
 
-                        <div class="research-status">
-                            EXPLORATION
-                        </div>
+        </article>
 
-                    </div>
 
-                </div>
 
-            </div>
+        <!-- =================================================
+             MISSION 05 — SMART VILLAGE
+        ================================================== -->
 
-        </section>
+        <article
+          class="mission reveal"
+          data-project="village"
+        >
 
+          <div class="mission-no">
+            MISSION 05
+          </div>
 
 
-        <!-- =====================================
-             GITHUB / PROFILES
-        ====================================== -->
+          <div class="mission-visual village-visual">
 
-        <section class="profiles section">
+            <span>☀</span>
 
-            <div class="section-label">
-                05 — DIGITAL PRESENCE
-            </div>
+            <span>◫</span>
 
+            <span>⌁</span>
 
-            <div class="profiles-grid">
+            <span>💧</span>
 
-                <a href="https://github.com/SWISSLIN"
-                   target="_blank"
-                   rel="noopener"
-                   class="profile-card">
+          </div>
 
-                    <span class="profile-type">
-                        CODE / PROJECTS
-                    </span>
 
-                    <h3>
-                        GITHUB
-                    </h3>
+          <div class="mission-body">
 
-                    <span class="profile-arrow">
-                        ↗
-                    </span>
+            <span>
+              EMBEDDED · SENSORS · AUTOMATION
+            </span>
 
-                </a>
+            <h3>
+              SMART VILLAGE
+            </h3>
 
+            <p>
+              Microcontroller-based prototype combining environmental
+              sensing, water monitoring and solar tracking.
+            </p>
 
-                <a href="https://www.linkedin.com/in/swisslinraj86"
-                   target="_blank"
-                   rel="noopener"
-                   class="profile-card">
+            <button class="text-btn">
+              ENTER MISSION ↗
+            </button>
 
-                    <span class="profile-type">
-                        PROFESSIONAL
-                    </span>
+          </div>
 
-                    <h3>
-                        LINKEDIN
-                    </h3>
 
-                    <span class="profile-arrow">
-                        ↗
-                    </span>
+          <div class="mission-status">
+            ● PROTOTYPE
+          </div>
 
-                </a>
+        </article>
 
 
-                <div class="profile-card profile-card-disabled">
 
-                    <span class="profile-type">
-                        COMING SOON
-                    </span>
+        <!-- =================================================
+             MISSION 06 — AUTOMATED RELAY
+        ================================================== -->
 
-                    <h3>
-                        YOUTUBE
-                    </h3>
+        <article
+          class="mission reveal"
+          data-project="relay"
+        >
 
-                    <span class="profile-arrow">
-                        +
-                    </span>
+          <div class="mission-no">
+            MISSION 06
+          </div>
 
-                </div>
 
+          <div class="mission-visual relay-visual">
 
-                <div class="profile-card profile-card-disabled">
+            <span>
+              TIME
+            </span>
 
-                    <span class="profile-type">
-                        COMING SOON
-                    </span>
+            <b>→</b>
 
-                    <h3>
-                        RESEARCH
-                    </h3>
+            <span>
+              MCU
+            </span>
 
-                    <span class="profile-arrow">
-                        +
-                    </span>
+            <b>→</b>
 
-                </div>
+            <span>
+              RELAY
+            </span>
 
-            </div>
+          </div>
 
-        </section>
 
+          <div class="mission-body">
 
+            <span>
+              ARDUINO · AUTOMATION · CONTROL
+            </span>
 
-        <!-- =====================================
-             CONTACT
-        ====================================== -->
+            <h3>
+              AUTOMATED RELAY SYSTEM
+            </h3>
 
-        <section class="contact section" id="contact">
+            <p>
+              Time-based relay switching system designed for
+              automated control of electrical appliances.
+            </p>
 
-            <div class="contact-top">
+            <button class="text-btn">
+              VIEW PROJECT ↗
+            </button>
 
-                <div class="section-label">
-                    06 — CONTACT
-                </div>
+          </div>
 
-            </div>
 
+          <div class="mission-status">
+            ● COMPLETED
+          </div>
 
-            <div class="contact-main">
+        </article>
 
-                <h2>
-                    LET'S BUILD
-                    <span>SOMETHING.</span>
-                </h2>
+      </div>
 
-                <p>
-                    Open to opportunities, collaborations,
-                    research discussions and engineering projects.
-                </p>
+    </section>
 
 
-                <div class="contact-buttons">
 
-                    <a href="https://www.linkedin.com/in/swisslinraj86"
-                       target="_blank"
-                       rel="noopener"
-                       class="primary-button">
+    <!-- =======================================================
+         RESEARCH
+    ======================================================== -->
 
-                        <span>CONNECT ON LINKEDIN</span>
+    <section
+      id="research"
+      class="section research-section"
+    >
 
-                        <span>↗</span>
+      <div class="section-label">
+        04 // RESEARCH ORBIT
+      </div>
 
-                    </a>
 
+      <div class="research-grid">
 
-                    <a href="https://github.com/SWISSLIN"
-                       target="_blank"
-                       rel="noopener"
-                       class="secondary-button">
 
-                        VIEW GITHUB
+        <div class="research-copy reveal">
 
-                    </a>
+          <p class="eyebrow">
+            RESEARCH DIRECTION
+          </p>
 
-                </div>
+          <h2>
+            FROM<br>
+            <span>IDEA → SYSTEM</span>
+          </h2>
 
-            </div>
+          <p>
+            My research interests focus on intelligent interfaces,
+            AI-enabled hardware, embedded intelligence, VLSI/SoC
+            design and next-generation human-computer interaction.
+          </p>
 
 
-            <div class="contact-footer">
+          <div class="interest-list">
 
-                <span>
-                    SWISSLIN RAJ V
-                </span>
+            <span>
+              VLSI &amp; SoC DESIGN
+            </span>
 
-                <span>
-                    ECE · VLSI · EMBEDDED · AI
-                </span>
+            <span>
+              AI HARDWARE
+            </span>
 
-                <span>
-                    © 2026
-                </span>
+            <span>
+              EDGE AI / TINYML
+            </span>
 
-            </div>
+            <span>
+              HUMAN-COMPUTER INTERACTION
+            </span>
 
-        </section>
+            <span>
+              EMBEDDED INTELLIGENCE
+            </span>
 
-    </main>
+          </div>
 
+        </div>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
 
-    <script src="script.js"></script>
+        <!-- Research orbital visualization -->
+
+        <div class="research-orbit reveal">
+
+          <div class="research-core">
+            RESEARCH
+          </div>
+
+          <div class="research-dot d1">
+            VLSI
+          </div>
+
+          <div class="research-dot d2">
+            AI
+          </div>
+
+          <div class="research-dot d3">
+            HCI
+          </div>
+
+          <div class="research-dot d4">
+            EDGE
+          </div>
+
+          <div class="research-dot d5">
+            SoC
+          </div>
+
+          <div class="research-path"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         SWISSLIN LAB
+    ======================================================== -->
+
+    <section
+      id="lab"
+      class="section lab-section"
+    >
+
+      <div class="section-label">
+        05 // SWISSLIN LAB
+      </div>
+
+
+      <div class="section-head reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            EXPERIMENTAL SYSTEMS
+          </p>
+
+          <h2>
+            LAB //
+            <span>EXPLORING</span>
+          </h2>
+
+        </div>
+
+        <p>
+          Ideas and experiments that are still becoming systems.
+        </p>
+
+      </div>
+
+
+
+      <div class="lab-grid">
+
+
+        <div class="lab-card reveal">
+
+          <b>
+            EXP-001
+          </b>
+
+          <h3>
+            AI HARDWARE
+          </h3>
+
+          <span>
+            EXPLORING
+          </span>
+
+          <p>
+            Efficient intelligence at the edge.
+          </p>
+
+        </div>
+
+
+
+        <div class="lab-card reveal">
+
+          <b>
+            EXP-002
+          </b>
+
+          <h3>
+            WI-FI SENSING
+          </h3>
+
+          <span>
+            EXPLORING
+          </span>
+
+          <p>
+            Investigating sensing possibilities from modern
+            wireless signals.
+          </p>
+
+        </div>
+
+
+
+        <div class="lab-card reveal">
+
+          <b>
+            EXP-003
+          </b>
+
+          <h3>
+            PROCESSOR ARCHITECTURE
+          </h3>
+
+          <span>
+            BUILDING
+          </span>
+
+          <p>
+            Learning through custom processor and RTL experimentation.
+          </p>
+
+        </div>
+
+
+
+        <div class="lab-card reveal">
+
+          <b>
+            EXP-004
+          </b>
+
+          <h3>
+            NEXT-GEN INTERFACES
+          </h3>
+
+          <span>
+            IDEATION
+          </span>
+
+          <p>
+            Exploring new ways humans can interact with machines.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         ENGINEERING CORE
+    ======================================================== -->
+
+    <section
+      id="skills"
+      class="section core-section"
+    >
+
+      <div class="section-label">
+        06 // ENGINEERING CORE
+      </div>
+
+
+      <div class="core-grid">
+
+
+        <div class="core-copy reveal">
+
+          <p class="eyebrow">
+            ENGINEERING CORE
+          </p>
+
+          <h2>
+            THE TOOLS<br>
+            <span>BEHIND THE BUILDS</span>
+          </h2>
+
+          <p>
+            Technologies I have worked with across academic,
+            prototype and research projects.
+          </p>
+
+        </div>
+
+
+
+        <div class="skill-matrix reveal">
+
+
+          <div>
+
+            <b>
+              VLSI
+            </b>
+
+            <span>
+              Verilog · RTL · Vivado · Digital Design ·
+              Processor Architecture
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <b>
+              EMBEDDED
+            </b>
+
+            <span>
+              Arduino · ESP32 · Raspberry Pi · Sensors ·
+              I²C · SPI · I²S
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <b>
+              AI
+            </b>
+
+            <span>
+              Python · Machine Learning · Computer Vision ·
+              TinyML · Edge AI
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <b>
+              DEVELOPMENT
+            </b>
+
+            <span>
+              GitHub · VS Code · PlatformIO · Linux · Simulation
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         ENGINEERING JOURNEY
+    ======================================================== -->
+
+    <section
+      id="journey"
+      class="section journey-section"
+    >
+
+      <div class="section-label">
+        07 // MISSION LOG
+      </div>
+
+
+      <div class="journey">
+
+
+        <div class="year reveal">
+
+          <strong>
+            2024
+          </strong>
+
+          <span>
+            Embedded foundations<br>
+            Arduino &amp; electronics
+          </span>
+
+        </div>
+
+
+
+        <div class="year reveal">
+
+          <strong>
+            2025
+          </strong>
+
+          <span>
+            Industrial exposure<br>
+            Smart systems &amp; prototypes
+          </span>
+
+        </div>
+
+
+
+        <div class="year reveal">
+
+          <strong>
+            2026
+          </strong>
+
+          <span>
+            VERA-E · AXON AIR<br>
+            AI · TinyML · Advanced embedded
+          </span>
+
+        </div>
+
+
+
+        <div class="year future reveal">
+
+          <strong>
+            NEXT
+          </strong>
+
+          <span>
+            VLSI · SoC<br>
+            AI Hardware · Research
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         BIG STATEMENT
+    ======================================================== -->
+
+    <section class="statement">
+
+      <div class="statement-inner reveal">
+
+        <p>
+          THE MISSION IS NOT TO FOLLOW TECHNOLOGY.
+        </p>
+
+        <h2>
+          IT IS TO
+          <span>BUILD</span>
+          WHAT COMES NEXT.
+        </h2>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =======================================================
+         CONTACT / MISSION CONTROL
+    ======================================================== -->
+
+    <section
+      id="contact"
+      class="contact section"
+    >
+
+      <div class="contact-earth"></div>
+
+
+      <div class="section-label">
+        08 // MISSION CONTROL
+      </div>
+
+
+      <div class="contact-content reveal">
+
+        <p class="eyebrow">
+          READY FOR THE NEXT BUILD?
+        </p>
+
+        <h2>
+          LET'S<br>
+          <span>BUILD IT.</span>
+        </h2>
+
+
+        <div class="contact-links">
+
+          <a
+            href="https://github.com/SWISSLIN"
+            target="_blank"
+            rel="noopener"
+          >
+            GITHUB ↗
+          </a>
+
+
+          <a
+            href="https://linkedin.com/in/swisslinraj86"
+            target="_blank"
+            rel="noopener"
+          >
+            LINKEDIN ↗
+          </a>
+
+
+          <a href="mailto:swisslinraj86@gmail.com">
+            EMAIL ↗
+          </a>
+
+
+          <a
+            href="https://swisslin.github.io/swisslinraj86.github.io/"
+            target="_blank"
+            rel="noopener"
+          >
+            PORTFOLIO ↗
+          </a>
+
+        </div>
+
+
+        <p class="footer-line">
+          SWISSLIN RAJ V · ECE · VLSI · EMBEDDED · AI · RESEARCH
+        </p>
+
+
+        <p class="footer-line small">
+          EARTH → ORBIT → BEYOND
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =======================================================
+       PROJECT MODAL
+  ======================================================== -->
+
+  <div
+    id="projectModal"
+    class="modal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-box">
+
+
+      <button
+        class="modal-close"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+
+      <p
+        class="eyebrow"
+        id="modalKicker"
+      ></p>
+
+
+      <h2 id="modalTitle"></h2>
+
+
+      <p id="modalText"></p>
+
+
+      <div
+        id="modalFlow"
+        class="modal-flow"
+      ></div>
+
+
+      <a
+        id="modalGithub"
+        class="btn primary"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        OPEN GITHUB ↗
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script src="script.js"></script>
 
 </body>
-
 </html>
