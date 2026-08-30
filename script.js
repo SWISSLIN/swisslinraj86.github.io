@@ -1,391 +1,1143 @@
 /* =========================================================
    SWISSLIN RAJ V
-   ENGINEERING PORTFOLIO — INTERACTIONS
+   SPACE ENGINEERING PORTFOLIO
+   MAIN JAVASCRIPT
 ========================================================= */
 
 
 /* =========================================================
-   PRELOADER
+   1. SPACE STARFIELD
 ========================================================= */
 
-window.addEventListener("load", function () {
+const canvas = document.getElementById("spaceCanvas");
+const ctx = canvas.getContext("2d");
 
-    const preloader =
-        document.getElementById("preloader");
+let width = 0;
+let height = 0;
+let devicePixelRatioValue = 1;
 
-    if (!preloader) return;
+let stars = [];
+let particles = [];
 
-    setTimeout(function () {
+const STAR_COUNT = 260;
+const PARTICLE_COUNT = 75;
 
-        preloader.classList.add("hide");
 
-    }, 1800);
+/* ---------------------------------------------------------
+   Resize Canvas
+--------------------------------------------------------- */
 
-});
+function resizeCanvas() {
+
+  devicePixelRatioValue =
+    Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width =
+    width * devicePixelRatioValue;
+
+  canvas.height =
+    height * devicePixelRatioValue;
+
+  canvas.style.width =
+    width + "px";
+
+  canvas.style.height =
+    height + "px";
+
+  ctx.setTransform(
+    devicePixelRatioValue,
+    0,
+    0,
+    devicePixelRatioValue,
+    0,
+    0
+  );
+
+  createStars();
+  createParticles();
+}
+
+
+/* ---------------------------------------------------------
+   Create Stars
+--------------------------------------------------------- */
+
+function createStars() {
+
+  const count =
+    Math.min(
+      STAR_COUNT,
+      Math.floor(
+        (width * height) / 6000
+      )
+    );
+
+  stars = [];
+
+  for (let i = 0; i < count; i++) {
+
+    stars.push({
+
+      x: Math.random() * width,
+
+      y: Math.random() * height,
+
+      radius:
+        Math.random() * 1.35 + 0.2,
+
+      opacity:
+        Math.random() * 0.75 + 0.15,
+
+      speed:
+        Math.random() * 0.18 + 0.025,
+
+      twinkle:
+        Math.random() * Math.PI * 2
+
+    });
+
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Create Floating Particles
+--------------------------------------------------------- */
+
+function createParticles() {
+
+  particles = [];
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+
+    particles.push({
+
+      x: Math.random() * width,
+
+      y: Math.random() * height,
+
+      radius:
+        Math.random() * 1.7 + 0.25,
+
+      opacity:
+        Math.random() * 0.25 + 0.05,
+
+      velocityX:
+        (Math.random() - 0.5) * 0.15,
+
+      velocityY:
+        (Math.random() - 0.5) * 0.15
+
+    });
+
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Draw Space
+--------------------------------------------------------- */
+
+function drawSpace() {
+
+  ctx.clearRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+
+  /* Stars */
+
+  const time =
+    Date.now() * 0.001;
+
+
+  stars.forEach(star => {
+
+    star.y += star.speed;
+
+    if (star.y > height) {
+      star.y = 0;
+    }
+
+
+    const twinkle =
+      0.65 +
+      Math.sin(
+        time * 1.2 +
+        star.twinkle
+      ) * 0.35;
+
+
+    ctx.globalAlpha =
+      star.opacity * twinkle;
+
+    ctx.fillStyle =
+      "#dbeeff";
+
+    ctx.beginPath();
+
+    ctx.arc(
+      star.x,
+      star.y,
+      star.radius,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+  });
+
+
+  /* Particles */
+
+  particles.forEach(particle => {
+
+    particle.x +=
+      particle.velocityX;
+
+    particle.y +=
+      particle.velocityY;
+
+
+    if (particle.x < 0) {
+      particle.x = width;
+    }
+
+    if (particle.x > width) {
+      particle.x = 0;
+    }
+
+    if (particle.y < 0) {
+      particle.y = height;
+    }
+
+    if (particle.y > height) {
+      particle.y = 0;
+    }
+
+
+    ctx.globalAlpha =
+      particle.opacity;
+
+    ctx.fillStyle =
+      "#71e6ff";
+
+    ctx.beginPath();
+
+    ctx.arc(
+      particle.x,
+      particle.y,
+      particle.radius,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+  });
+
+
+  ctx.globalAlpha = 1;
+
+  requestAnimationFrame(drawSpace);
+}
+
+
+resizeCanvas();
+
+window.addEventListener(
+  "resize",
+  resizeCanvas
+);
+
+drawSpace();
+
 
 
 /* =========================================================
-   CURSOR GLOW
+   2. CURSOR SPACE GLOW
 ========================================================= */
 
 const cursorGlow =
-    document.getElementById("cursorGlow");
+  document.querySelector(".cursor-glow");
+
 
 if (cursorGlow) {
 
-    window.addEventListener("mousemove", function (event) {
+  window.addEventListener(
+    "pointermove",
+    event => {
 
-        cursorGlow.style.left =
-            event.clientX + "px";
+      cursorGlow.style.left =
+        event.clientX + "px";
 
-        cursorGlow.style.top =
-            event.clientY + "px";
+      cursorGlow.style.top =
+        event.clientY + "px";
 
-        cursorGlow.style.opacity = "1";
-
-    });
-
-    document.addEventListener("mouseleave", function () {
-
-        cursorGlow.style.opacity = "0";
-
-    });
+    }
+  );
 
 }
 
 
+
 /* =========================================================
-   ACTIVE NAVIGATION
+   3. PORTRAIT 3D INTERACTION
 ========================================================= */
 
-const sections =
-    document.querySelectorAll("section[id]");
-
-const navLinks =
-    document.querySelectorAll(".nav-links a");
+const portraitCard =
+  document.querySelector(".portrait-card");
 
 
-const sectionObserver =
-    new IntersectionObserver(
+if (portraitCard) {
 
-        function (entries) {
+  document.addEventListener(
+    "mousemove",
+    event => {
 
-            entries.forEach(function (entry) {
-
-                if (!entry.isIntersecting) return;
-
-                navLinks.forEach(function (link) {
-
-                    link.classList.remove("active");
-
-                    if (
-                        link.getAttribute("href") ===
-                        "#" + entry.target.id
-                    ) {
-
-                        link.classList.add("active");
-
-                    }
-
-                });
-
-            });
-
-        },
-
-        {
-            threshold: 0.35
-        }
-
-    );
+      if (window.innerWidth < 900) {
+        return;
+      }
 
 
-sections.forEach(function (section) {
+      const rect =
+        portraitCard.getBoundingClientRect();
 
-    sectionObserver.observe(section);
 
-});
+      const centerX =
+        rect.left +
+        rect.width / 2;
+
+      const centerY =
+        rect.top +
+        rect.height / 2;
+
+
+      const mouseX =
+        event.clientX -
+        centerX;
+
+      const mouseY =
+        event.clientY -
+        centerY;
+
+
+      const rotateY =
+        (mouseX / rect.width) * 12;
+
+      const rotateX =
+        -(mouseY / rect.height) * 12;
+
+
+      portraitCard.style.transform =
+        `
+        perspective(1000px)
+        rotateY(${rotateY}deg)
+        rotateX(${rotateX}deg)
+        translateZ(8px)
+        `;
+
+    }
+  );
+
+
+  portraitCard.addEventListener(
+    "mouseleave",
+    () => {
+
+      portraitCard.style.transform =
+        `
+        perspective(1000px)
+        rotateY(-8deg)
+        rotateX(3deg)
+        `;
+
+    }
+  );
+
+}
+
 
 
 /* =========================================================
-   SCROLL REVEAL
+   4. SCROLL REVEAL ANIMATION
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(
-        ".project-card, .expertise-item, .research-item, .profile-card, .stat"
-    );
-
-
-revealElements.forEach(function (element) {
-
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(35px)";
-
-    element.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
-
-});
+  document.querySelectorAll(".reveal");
 
 
 const revealObserver =
-    new IntersectionObserver(
+  new IntersectionObserver(
+    entries => {
 
-        function (entries, observer) {
+      entries.forEach(entry => {
 
-            entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
 
-                if (!entry.isIntersecting) return;
+          entry.target.classList.add(
+            "visible"
+          );
 
-                entry.target.style.opacity = "1";
-
-                entry.target.style.transform =
-                    "translateY(0)";
-
-                observer.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-revealElements.forEach(function (element) {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* =========================================================
-   PROJECT CARD TILT
-========================================================= */
-
-const projectCards =
-    document.querySelectorAll(".project-card");
-
-
-projectCards.forEach(function (card) {
-
-    card.addEventListener(
-        "mousemove",
-        function (event) {
-
-            if (window.innerWidth < 900) {
-                return;
-            }
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const centerX =
-                rect.width / 2;
-
-            const centerY =
-                rect.height / 2;
-
-            const rotateX =
-                ((y - centerY) / centerY) * -2;
-
-            const rotateY =
-                ((x - centerX) / centerX) * 2;
-
-            card.style.transform =
-                "perspective(900px) " +
-                "rotateX(" + rotateX + "deg) " +
-                "rotateY(" + rotateY + "deg)";
-
-        }
-    );
-
-
-    card.addEventListener(
-        "mouseleave",
-        function () {
-
-            card.style.transform =
-                "perspective(900px) " +
-                "rotateX(0deg) " +
-                "rotateY(0deg)";
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   SMOOTH NAVIGATION
-========================================================= */
-
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(function (link) {
-
-    link.addEventListener(
-        "click",
-        function (event) {
-
-            const targetId =
-                link.getAttribute("href");
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "start"
-
-            });
-
-        }
-    );
-
-});
-
-
-/* =========================================================
-   HERO PARALLAX
-========================================================= */
-
-const heroContent =
-    document.querySelector(".hero-content");
-
-
-window.addEventListener(
-    "scroll",
-    function () {
-
-        if (!heroContent) return;
-
-        if (window.innerWidth < 700) {
-            return;
-        }
-
-        const scroll =
-            window.scrollY;
-
-        if (
-            scroll <
-            window.innerHeight
-        ) {
-
-            heroContent.style.transform =
-                "translateY(" +
-                scroll * 0.12 +
-                "px)";
+          revealObserver.unobserve(
+            entry.target
+          );
 
         }
 
+      });
+
+    },
+    {
+      threshold: 0.12
     }
-);
+  );
+
+
+revealElements.forEach(element => {
+
+  revealObserver.observe(
+    element
+  );
+
+});
+
 
 
 /* =========================================================
-   VERA-E CHIP ANIMATION
+   5. PROJECT DATABASE
 ========================================================= */
 
-const chip =
-    document.querySelector(".chip-outline");
+const projects = {
+
+  vera: {
+
+    category:
+      "VLSI · RTL · FPGA",
+
+    title:
+      "VERA-E",
+
+    description:
+      "A 32-bit processor project built around RTL experimentation, instruction flow, registers, ALU, control logic, memory and pipelined execution.",
+
+    flow: [
+      "FETCH",
+      "DECODE",
+      "EXECUTE",
+      "MEMORY",
+      "WRITE BACK"
+    ],
+
+    github:
+      "https://github.com/SWISSLIN"
+
+  },
 
 
-if (chip) {
+  axon: {
 
-    let rotation = 45;
+    category:
+      "AI · HCI · EMBEDDED",
 
-    function animateChip() {
+    title:
+      "AXON AIR",
 
-        rotation += 0.08;
+    description:
+      "A research-driven aerial interface concept exploring a novel human-computer interaction approach through intelligent sensing and execution.",
 
-        chip.style.transform =
-            "rotate(" +
-            rotation +
-            "deg)";
+    flow: [
+      "SENSING",
+      "INTERPRETATION",
+      "AI CORE",
+      "RESPONSE",
+      "INTERFACE"
+    ],
 
-        requestAnimationFrame(
-            animateChip
+    github:
+      "https://github.com/SWISSLIN"
+
+  },
+
+
+  hppai: {
+
+    category:
+      "AI · COMPUTER VISION · EMBEDDED",
+
+    title:
+      "HPPAI-CG",
+
+    description:
+      "A portable AI companion glasses concept combining camera sensing, edge processing, audio, display and intelligent assistance.",
+
+    flow: [
+      "CAMERA",
+      "PROCESSING",
+      "UNDERSTANDING",
+      "AUDIO",
+      "DISPLAY"
+    ],
+
+    github:
+      "https://github.com/SWISSLIN"
+
+  },
+
+
+  tinyml: {
+
+    category:
+      "TINYML · EDGE AI · HARDWARE",
+
+    title:
+      "TINYML SOC",
+
+    description:
+      "An exploration of deploying machine-learning inference on constrained hardware, connecting sensing, preprocessing, model inference and output.",
+
+    flow: [
+      "SENSOR",
+      "PREPROCESS",
+      "MODEL",
+      "INFERENCE",
+      "OUTPUT"
+    ],
+
+    github:
+      "https://github.com/SWISSLIN"
+
+  },
+
+
+  village: {
+
+    category:
+      "EMBEDDED · SENSORS · AUTOMATION",
+
+    title:
+      "SMART VILLAGE",
+
+    description:
+      "A microcontroller-based prototype integrating environmental sensing, water monitoring, solar tracking and automated responses.",
+
+    flow: [
+      "SENSORS",
+      "MICROCONTROLLER",
+      "CONTROL",
+      "ACTUATORS"
+    ],
+
+    github:
+      "https://github.com/SWISSLIN"
+
+  },
+
+
+  relay: {
+
+    category:
+      "ARDUINO · AUTOMATION · CONTROL",
+
+    title:
+      "AUTOMATED RELAY SYSTEM",
+
+    description:
+      "A time-based relay switching project for automated control of electrical appliances using a microcontroller.",
+
+    flow: [
+      "TIME",
+      "MICROCONTROLLER",
+      "LOGIC",
+      "RELAY",
+      "LOAD"
+    ],
+
+    github:
+      "https://github.com/SWISSLIN/Automated-Time-Based-Relay-Switching-System"
+
+  }
+
+};
+
+
+
+/* =========================================================
+   6. PROJECT MODAL
+========================================================= */
+
+const projectModal =
+  document.getElementById(
+    "projectModal"
+  );
+
+const modalKicker =
+  document.getElementById(
+    "modalKicker"
+  );
+
+const modalTitle =
+  document.getElementById(
+    "modalTitle"
+  );
+
+const modalText =
+  document.getElementById(
+    "modalText"
+  );
+
+const modalFlow =
+  document.getElementById(
+    "modalFlow"
+  );
+
+const modalGithub =
+  document.getElementById(
+    "modalGithub"
+  );
+
+const modalClose =
+  document.querySelector(
+    ".modal-close"
+  );
+
+
+
+/* ---------------------------------------------------------
+   Open Project
+--------------------------------------------------------- */
+
+function openProject(projectID) {
+
+  const project =
+    projects[projectID];
+
+
+  if (!project) {
+    return;
+  }
+
+
+  modalKicker.textContent =
+    project.category;
+
+
+  modalTitle.textContent =
+    project.title;
+
+
+  modalText.textContent =
+    project.description;
+
+
+  modalFlow.innerHTML = "";
+
+
+  project.flow.forEach(
+    step => {
+
+      const span =
+        document.createElement(
+          "span"
         );
 
-    }
+      span.textContent =
+        step;
 
-    animateChip();
+      modalFlow.appendChild(
+        span
+      );
+
+    }
+  );
+
+
+  modalGithub.href =
+    project.github;
+
+
+  projectModal.classList.add(
+    "active"
+  );
+
+
+  projectModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.classList.add(
+    "modal-open"
+  );
 
 }
 
 
-/* =========================================================
-   PROJECT HOVER GLOW
-========================================================= */
 
-projectCards.forEach(function (card) {
+/* ---------------------------------------------------------
+   Close Project
+--------------------------------------------------------- */
+
+function closeProject() {
+
+  projectModal.classList.remove(
+    "active"
+  );
+
+
+  projectModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Project Click
+--------------------------------------------------------- */
+
+const missionCards =
+  document.querySelectorAll(
+    ".mission"
+  );
+
+
+missionCards.forEach(
+  card => {
 
     card.addEventListener(
-        "mouseenter",
-        function () {
+      "click",
+      event => {
 
-            card.style.boxShadow =
-                "0 20px 70px rgba(102,230,255,0.05)";
+        /*
+          Prevent the project button from
+          causing duplicate behavior.
+        */
 
-        }
+        const projectID =
+          card.dataset.project;
+
+
+        openProject(
+          projectID
+        );
+
+      }
     );
 
+  }
+);
 
-    card.addEventListener(
-        "mouseleave",
-        function () {
 
-            card.style.boxShadow =
-                "none";
 
-        }
-    );
+/* Close button */
 
-});
+if (modalClose) {
+
+  modalClose.addEventListener(
+    "click",
+    closeProject
+  );
+
+}
+
+
+
+/* Click outside */
+
+if (projectModal) {
+
+  projectModal.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target ===
+        projectModal
+      ) {
+
+        closeProject();
+
+      }
+
+    }
+  );
+
+}
+
+
+
+/* ESC key */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape" &&
+      projectModal.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeProject();
+
+    }
+
+  }
+);
+
 
 
 /* =========================================================
-   CURRENT YEAR
+   7. MOBILE NAVIGATION
 ========================================================= */
 
-const yearElements =
-    document.querySelectorAll(
-        ".current-year"
-    );
+const menuButton =
+  document.querySelector(
+    ".menu-btn"
+  );
+
+const navigation =
+  document.querySelector(
+    ".nav nav"
+  );
 
 
-yearElements.forEach(function (element) {
+if (
+  menuButton &&
+  navigation
+) {
 
-    element.textContent =
-        new Date().getFullYear();
+  menuButton.addEventListener(
+    "click",
+    () => {
 
-});
+      navigation.classList.toggle(
+        "open"
+      );
+
+    }
+  );
+
+
+  /*
+    Close mobile menu after
+    clicking a navigation link.
+  */
+
+  navigation
+    .querySelectorAll("a")
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          navigation.classList.remove(
+            "open"
+          );
+
+        }
+      );
+
+    });
+
+}
+
 
 
 /* =========================================================
-   PAGE READY
+   8. ACTIVE NAVIGATION
 ========================================================= */
 
-document.body.classList.add(
-    "page-ready"
+const sections =
+  document.querySelectorAll(
+    "section[id]"
+  );
+
+const navLinks =
+  document.querySelectorAll(
+    ".nav nav a"
+  );
+
+
+const activeSectionObserver =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(
+        entry => {
+
+          if (
+            entry.isIntersecting
+          ) {
+
+            const currentID =
+              entry.target.id;
+
+
+            navLinks.forEach(
+              link => {
+
+                link.classList.remove(
+                  "active"
+                );
+
+
+                if (
+                  link.getAttribute(
+                    "href"
+                  ) ===
+                  "#" + currentID
+                ) {
+
+                  link.classList.add(
+                    "active"
+                  );
+
+                }
+
+              }
+            );
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold: 0.45
+    }
+  );
+
+
+sections.forEach(
+  section => {
+
+    activeSectionObserver.observe(
+      section
+    );
+
+  }
+);
+
+
+
+/* =========================================================
+   9. PARALLAX SPACE EFFECT
+========================================================= */
+
+const heroCopy =
+  document.querySelector(
+    ".hero-copy"
+  );
+
+
+window.addEventListener(
+  "scroll",
+  () => {
+
+    if (
+      !heroCopy ||
+      window.innerWidth < 800
+    ) {
+
+      return;
+
+    }
+
+
+    const scrollY =
+      window.scrollY;
+
+
+    if (scrollY < window.innerHeight) {
+
+      const opacity =
+        Math.max(
+          0,
+          1 -
+          scrollY /
+          (window.innerHeight * 0.75)
+        );
+
+
+      const translate =
+        scrollY * 0.18;
+
+
+      heroCopy.style.opacity =
+        opacity;
+
+
+      heroCopy.style.transform =
+        `
+        translateY(
+          ${translate}px
+        )
+        `;
+
+    }
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+
+/* =========================================================
+   10. SMOOTH INTERNAL LINKS
+========================================================= */
+
+document
+  .querySelectorAll(
+    'a[href^="#"]'
+  )
+  .forEach(
+    link => {
+
+      link.addEventListener(
+        "click",
+        event => {
+
+          const targetID =
+            link.getAttribute(
+              "href"
+            );
+
+
+          if (
+            targetID === "#" ||
+            targetID === ""
+          ) {
+
+            return;
+
+          }
+
+
+          const target =
+            document.querySelector(
+              targetID
+            );
+
+
+          if (!target) {
+            return;
+          }
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    }
+  );
+
+
+
+/* =========================================================
+   11. IMAGE FALLBACK
+========================================================= */
+
+const profileImage =
+  document.querySelector(
+    ".portrait-card img"
+  );
+
+
+if (profileImage) {
+
+  profileImage.addEventListener(
+    "error",
+    () => {
+
+      console.warn(
+        "profile.jpg was not found. Upload profile.jpg to the repository root."
+      );
+
+      profileImage.style.opacity =
+        "0";
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   12. PAGE LOAD
+========================================================= */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    document.body.classList.add(
+      "page-loaded"
+    );
+
+  }
+);
+
+
+
+/* =========================================================
+   13. PREVENT RIGHT-CLICK ON CANVAS ONLY
+========================================================= */
+
+if (canvas) {
+
+  canvas.addEventListener(
+    "contextmenu",
+    event => {
+
+      event.preventDefault();
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   END
+========================================================= */
+
+console.log(
+  "%cSWISSLIN RAJ V",
+  "color:#71e6ff;font-size:20px;font-weight:bold;"
+);
+
+console.log(
+  "%cEngineering Beyond Boundaries.",
+  "color:#9aa8c4;font-size:12px;"
 );
